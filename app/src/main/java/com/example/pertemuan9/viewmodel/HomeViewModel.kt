@@ -9,23 +9,16 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-class HomeViewModel(
-    private val repositoriSiswa: RepositoriSiswa) : ViewModel() {
+class HomeViewModel( private val repositoriSiswa: RepositoriSiswa) : ViewModel() {
 
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val homeUiState: StateFlow<HomeUiState> =
-        repositoriSiswa.getAllSiswaStream()
-            .map {
-                HomeUiState(listSiswa = it.toList())
-            }
-            .stateIn(
-                scope = viewModelScope,
-                started = SharingStarted.WhileSubscribed(
-                    TIMEOUT_MILLIS
-                ),
+    val homeUiState: StateFlow<HomeUiState> = repositoriSiswa.getAllSiswaStream()
+            .map { HomeUiState(listSiswa = it.toList())}
+            .stateIn(scope = viewModelScope,
+                started = SharingStarted.WhileSubscribed( TIMEOUT_MILLIS),
                 initialValue = HomeUiState()
             )
 }
