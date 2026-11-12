@@ -7,18 +7,15 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.pertemuan9.AplikasiSiswa
 
 object PenyediaViewModel {
-
     val Factory = viewModelFactory {
 
         initializer {
-            HomeViewModel(
-                aplikasiSiswa().container.repositoriSiswa
+            HomeViewModel( aplikasiSiswa().container.repositoriSiswa
             )
         }
 
         initializer {
-            EntryViewModel(
-                aplikasiSiswa().container.repositoriSiswa
+            EntryViewModel( aplikasiSiswa().container.repositoriSiswa
             )
         }
     }
@@ -29,5 +26,4 @@ object PenyediaViewModel {
  * dan mengembalikan sebuah instance AplikasiSiswa.
  */
 fun CreationExtras.aplikasiSiswa(): AplikasiSiswa =
-    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY]
-            as AplikasiSiswa)
+    (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as AplikasiSiswa)

@@ -1,8 +1,7 @@
 package com.example.pertemuan9.uicontroller
 
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -33,15 +32,14 @@ fun SiswaTopAppBar(
     scrollBehavior: androidx.compose.material3.TopAppBarScrollBehavior? = null,
     navigateUp: () -> Unit = {}
 ) {
-    CenterAlignedTopAppBar(
-        title = { Text(title) },
+    CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
         scrollBehavior = scrollBehavior,
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = "Back"
                     )
                 }
@@ -70,11 +68,7 @@ fun HostNavigasi(
         }
 
         composable(DestinasiEntry.route) {
-            EntrySiswaScreen(
-                navigateBack = {
-                    navController.popBackStack()
-                }
-            )
+            EntrySiswaScreen(navigateBack = { navController.popBackStack() })
         }
     }
 }

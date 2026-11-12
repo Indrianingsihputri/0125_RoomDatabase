@@ -35,20 +35,16 @@ import com.example.pertemuan9.uicontroller.DestinasiHome
 import com.example.pertemuan9.uicontroller.SiswaTopAppBar
 import com.example.pertemuan9.viewmodel.HomeViewModel
 import com.example.pertemuan9.viewmodel.PenyediaViewModel
-import androidx.compose.foundation.layout.nestedScroll
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(
-        factory = PenyediaViewModel.Factory
-    )
+    viewModel: HomeViewModel = viewModel( factory = PenyediaViewModel.Factory)
 ) {
-    val scrollBehavior =
-        androidx.compose.material3.TopAppBarDefaults
-            .enterAlwaysScrollBehavior()
+    val scrollBehavior = androidx.compose.material3.TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
         modifier = modifier.nestedScroll(
