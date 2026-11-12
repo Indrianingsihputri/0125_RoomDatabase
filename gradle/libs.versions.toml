@@ -39,5 +39,5 @@ navigation-compose = {module = "androidx.navigation:navigation-compose", version
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "kspver" }}
+ksp = { id = "com.google.devtools.ksp", version.ref = "kspver" }
 
